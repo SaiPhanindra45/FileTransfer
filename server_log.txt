@@ -1,0 +1,40 @@
+2025-03-02 15:22:27,643 - INFO - Server started on 0.0.0.0:12345, serving files from '.'
+2025-03-02 15:29:25,735 - INFO - Server started on 0.0.0.0:12345, serving files from 'C:\Users\PHANINDRA\Documents\asdwe.txt'
+2025-03-02 15:30:48,705 - INFO - New connection from 127.0.0.1:52976 (Active: 1)
+2025-03-02 15:30:48,711 - ERROR - Error sending file list to 127.0.0.1: [WinError 267] The directory name is invalid: 'C:\\Users\\PHANINDRA\\Documents\\asdwe.txt'
+2025-03-02 15:30:48,712 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:32:32,006 - INFO - Server started on 0.0.0.0:12345, serving files from 'C:\Users\PHANINDRA\Documents'
+2025-03-02 15:32:52,482 - INFO - New connection from 127.0.0.1:53004 (Active: 1)
+2025-03-02 15:32:52,497 - INFO - File list sent to 127.0.0.1
+2025-03-02 15:32:52,497 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:33:28,480 - INFO - New connection from 127.0.0.1:53013 (Active: 1)
+2025-03-02 15:33:28,482 - INFO - File 'asdwe.txt' (27 bytes) sent to 127.0.0.1
+2025-03-02 15:33:28,483 - INFO - Transfer rate: 0.00 MB/s (0.00 seconds)
+2025-03-02 15:33:28,484 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:34:57,056 - INFO - New connection from 127.0.0.1:53064 (Active: 1)
+2025-03-02 15:34:57,058 - INFO - File not found: C:\Users\PHANINDRA\Documents\example.txt, requested by 127.0.0.1
+2025-03-02 15:34:57,059 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:35:28,305 - INFO - New connection from 127.0.0.1:53085 (Active: 1)
+2025-03-02 15:35:28,307 - INFO - File 'asdwe.txt' (27 bytes) sent to 127.0.0.1
+2025-03-02 15:35:28,308 - INFO - Transfer rate: 0.00 MB/s (0.00 seconds)
+2025-03-02 15:35:28,308 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:37:07,423 - INFO - Server started on 0.0.0.0:12345, serving files from 'E:\'
+2025-03-02 15:37:25,162 - INFO - New connection from 127.0.0.1:53117 (Active: 1)
+2025-03-02 15:37:25,167 - INFO - File list sent to 127.0.0.1
+2025-03-02 15:37:25,168 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:39:58,161 - INFO - Server started on 0.0.0.0:12345, serving files from 'C:\Users\PHANINDRA\Videos\Screen Recordings'
+2025-03-02 15:40:09,568 - INFO - New connection from 127.0.0.1:53146 (Active: 1)
+2025-03-02 15:40:09,569 - INFO - File list sent to 127.0.0.1
+2025-03-02 15:40:09,570 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:40:31,325 - INFO - New connection from 127.0.0.1:53150 (Active: 1)
+2025-03-02 15:40:33,203 - INFO - File 'hajime.mp4' (161196435 bytes) sent to 127.0.0.1
+2025-03-02 15:40:33,204 - INFO - Transfer rate: 81.98 MB/s (1.88 seconds)
+2025-03-02 15:40:33,204 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 15:59:55,515 - INFO - Server started on 0.0.0.0:12345, serving files from 'C:\Users\PHANINDRA\Videos\Screen Recordings'
+2025-03-02 16:00:07,640 - INFO - New connection from 127.0.0.1:53427 (Active: 1)
+2025-03-02 16:00:07,642 - INFO - File list sent to 127.0.0.1
+2025-03-02 16:00:07,642 - INFO - Connection closed with 127.0.0.1 (Active: 0)
+2025-03-02 16:01:12,126 - INFO - New connection from 127.0.0.1:53434 (Active: 1)
+2025-03-02 16:01:13,210 - INFO - File 'hajime.mp4' (161196435 bytes) sent to 127.0.0.1
+2025-03-02 16:01:13,210 - INFO - Transfer rate: 141.89 MB/s (1.08 seconds)
+2025-03-02 16:01:13,210 - INFO - Connection closed with 127.0.0.1 (Active: 0)
