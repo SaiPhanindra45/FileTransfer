@@ -6,7 +6,6 @@ import argparse
 
 
 def progress_bar(current, total, bar_length=50):
-    """Display a simple progress bar in the console"""
     progress = min(1.0, current / total)
     arrow = '=' * int(progress * bar_length)
     spaces = ' ' * (bar_length - len(arrow))
@@ -15,7 +14,6 @@ def progress_bar(current, total, bar_length=50):
     sys.stdout.flush()
 
 def request_file(server_address, server_port, filename, save_as=None):
-    """Request a file from the server and save it locally"""
     if not save_as:
         save_as = os.path.basename(filename)
     
@@ -26,10 +24,8 @@ def request_file(server_address, server_port, filename, save_as=None):
         client_socket.connect((server_address, server_port))
         print(f"Connected successfully. Requesting file: {filename}")
         
-        # Send the file request
         client_socket.send(f"GET:{filename}".encode())
         
-        # Get the server's response
         response = client_socket.recv(1024).decode()
         
         if response.startswith("ERROR:"):
@@ -37,7 +33,6 @@ def request_file(server_address, server_port, filename, save_as=None):
             client_socket.close()
             return False
         
-        # Get file size
         if response.startswith("SIZE:"):
             file_size = int(response[5:])
             print(f"File found, size: {file_size} bytes")
@@ -47,7 +42,6 @@ def request_file(server_address, server_port, filename, save_as=None):
             client_socket.close()
             return False
         
-        # Receive and save the file
         bytes_received = 0
         buffer_size = 8192
         start_time = time.time()
@@ -82,7 +76,6 @@ def request_file(server_address, server_port, filename, save_as=None):
     return False
 
 def list_files(server_address, server_port):
-    """Request a list of available files from the server"""
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
     try:
