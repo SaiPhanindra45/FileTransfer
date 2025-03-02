@@ -6,7 +6,6 @@ import time
 import logging
 from datetime import datetime
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -30,10 +29,9 @@ class FileTransferServer:
         """Start the file transfer server"""
         try:
             self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            # Allow port reuse
             self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.server_socket.bind((self.host, self.port))
-            self.server_socket.listen(10)  # Allow up to 10 pending connections
+            self.server_socket.listen(10)  
             
             self.running = True
             logging.info(f"Server started on {self.host}:{self.port}, serving files from '{self.directory}'")
@@ -44,7 +42,6 @@ class FileTransferServer:
                     self.active_connections += 1
                     logging.info(f"New connection from {client_addr[0]}:{client_addr[1]} (Active: {self.active_connections})")
                     
-                    # Handle each client in a separate thread
                     client_thread = threading.Thread(
                         target=self.handle_client,
                         args=(client_conn, client_addr)
@@ -52,7 +49,7 @@ class FileTransferServer:
                     client_thread.daemon = True
                     client_thread.start()
                 except Exception as e:
-                    if self.running:  # Only log if not caused by shutdown
+                    if self.running:  
                         logging.error(f"Error accepting connection: {str(e)}")
         except Exception as e:
             logging.error(f"Server start error: {str(e)}")
@@ -73,7 +70,7 @@ class FileTransferServer:
         """Handle client connection and file requests"""
         client_ip = client_addr[0]
         try:
-            client_conn.settimeout(60)  # 60 second timeout
+            client_conn.settimeout(60) 
             request = client_conn.recv(1024).decode()
             
             if request.startswith("GET:"):
@@ -98,7 +95,7 @@ class FileTransferServer:
         """Send a file to the client"""
         filepath = os.path.join(self.directory, filename)
         
-        # Prevent directory traversal attacks
+
         normalized_path = os.path.normpath(filepath)
         if not normalized_path.startswith(os.path.normpath(self.directory)):
             logging.warning(f"Security: Client {client_ip} attempted path traversal: {filename}")
@@ -114,25 +111,24 @@ class FileTransferServer:
             file_size = os.path.getsize(filepath)
             client_conn.send(f"SIZE:{file_size}".encode())
             
-            # Wait for client to be ready
+    
             response = client_conn.recv(1024)
             if response != b"READY":
                 return
             
-            # Track transfer statistics
+
             start_time = time.time()
             bytes_sent = 0
             
-            # In server.py, ensure the file is opened in binary mode
+
             with open(filepath, 'rb') as file:
                 while True:
                     data = file.read(self.buffer_size)
                     if not data:
                         break
-                    client_conn.sendall(data)  # Use sendall to ensure all data is sent
+                    client_conn.sendall(data)  
                     bytes_sent += len(data)
-            
-            # Calculate statistics
+
             end_time = time.time()
             duration = end_time - start_time
             transfer_rate = (file_size / 1024 / 1024) / duration if duration > 0 else 0
